@@ -1,0 +1,152 @@
+/*
+  Global styles for the WebScraper extension popup
+
+  The design follows modern UI principles of clarity, consistency and
+  accessibility. We use a simple colour palette with sufficient contrast
+  and clear typography. Buttons are styled distinctly to indicate their
+  importance and affordances. Cards and previews have subtle borders and
+  rounded corners to separate content without visual clutter. See the
+  Chrome extension docs for popup size guidelines – popups must be between
+  25×25 and 800×600 pixels【992391259170738†L380-L386】. We opt for a 360 px
+  width here to give the content room to breathe.
+
+  Colours are defined as CSS variables so they can be tweaked easily or
+  themed in the future. Font sizes and spacing are chosen for readability
+  at small sizes. The overall layout is vertical, with the main action
+  button at the top, followed by status messaging, a preview of the
+  scraped data and a secondary download button.
+*/
+
+:root {
+  --bg: #f9fafb;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+  --primary: #3b82f6; /* blue-500 */
+  --primary-dark: #2563eb; /* blue-600 */
+  --text: #111827; /* gray-900 */
+  --muted: #6b7280; /* gray-500 */
+  --success: #10b981; /* green-500 */
+  --error: #ef4444; /* red-500 */
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  width: 360px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+header .subtitle {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Input and label styling */
+label.label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+input.input {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  background-color: var(--card-bg);
+  color: var(--text);
+}
+
+input.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+button {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+button.primary {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+button.primary:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+button.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+button.secondary:hover:not(:disabled) {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+button.secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  font-size: 12px;
+  color: var(--muted);
+  min-height: 18px;
+}
+
+/* Apply contextual colours to the status element when set via JS */
+.status.success {
+  color: var(--success);
+}
+.status.error {
+  color: var(--error);
+}
+
+.preview {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  max-height: 200px;
+}

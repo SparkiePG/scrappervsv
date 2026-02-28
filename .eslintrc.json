@@ -1,0 +1,10 @@
+{
+  // Use the default Next.js ESLint configuration.  The previous configuration
+  // referenced `@typescript-eslint` rules without installing the corresponding
+  // plugin, which caused the build to fail on Vercel.  We remove the custom
+  // TypeScript rule overrides and rely on the base configuration provided by
+  // `eslint-config-next`.  If you wish to customise TypeScript‑specific lint
+  // behaviour in the future, install `@typescript-eslint/eslint-plugin` and
+  // extend the appropriate recommended configuration.
+  "extends": "next/core-web-vitals"
+}

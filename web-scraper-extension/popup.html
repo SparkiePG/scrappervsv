@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Scraper</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>WebScraper</h1>
+    <p class="subtitle">Extract content &amp; metadata</p>
+  </header>
+  <main>
+    <!-- Optional CSS selector input. Users can specify a CSS selector to
+         extract text from a particular element on the page. Leave it blank
+         to extract the main article text automatically. -->
+    <label for="selectorInput" class="label">CSS selector (optional)</label>
+    <input
+      id="selectorInput"
+      type="text"
+      placeholder="e.g., .article-body or css:title"
+      class="input"
+      aria-label="CSS selector to target specific elements"
+    />
+    <button id="scrapeBtn" class="primary" aria-label="Scrape current page">Scrape Current Page</button>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <pre id="output" class="preview" aria-label="Preview of scraped data"></pre>
+    <button id="downloadBtn" class="secondary" disabled aria-label="Download scraped data">Download Full JSON</button>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
